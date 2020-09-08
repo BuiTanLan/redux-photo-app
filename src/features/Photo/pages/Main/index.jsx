@@ -1,6 +1,6 @@
-import Banner from "../../../../components/Banner";
+import Banner from "components/Banner";
 import { Container } from "reactstrap";
-import Images from "../../../../constants/images";
+import Images from "constants/images";
 import { Link } from "react-router-dom";
 import React from "react";
 
