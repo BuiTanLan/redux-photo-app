@@ -3,28 +3,19 @@ import './App.scss';
 import { BrowserRouter, Link, Redirect, Route, Switch } from 'react-router-dom';
 import React, { Suspense } from 'react';
 
+import Header from './components/Header';
 import NotFound from './components/NotFound';
 
-const Photo = React.lazy(() => import('./features/Photo'))
+const photos = React.lazy(() => import('./features/Photo'))
 function App() {
   return (
-    <div className="photo-app">
+    <div className="photos-app">
       <Suspense fallback={<div> Loading ...</div>}>
         <BrowserRouter>
-          <ul>
-            <li>
-              <Link to="/photo">Go to photo page</Link>
-            </li>
-            <li>
-              <Link to="/photo/add">Go to Add new photo page</Link>
-            </li>
-            <li>
-              <Link to="/photo/123">Go to Edit photo page</Link>
-            </li>
-          </ul>
+         <Header/>
           <Switch>
-            <Redirect exact from="/" to="/photo" />
-            <Route path="/photo" component={Photo} />
+            <Redirect exact from="/" to="/photos" />
+            <Route path="/photos" component={photos} />
             <Route component={NotFound} />
           </Switch>
         </BrowserRouter>
